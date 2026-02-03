@@ -1,0 +1,113 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100dvh;
+  margin: 0;
+
+  & .centro-salud {
+    background-color: rgb(236, 236, 236);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-shadow: 0px 0px 17px -2px rgba(0,0,0,0.75);
+    border-radius: 5px;
+
+
+    & .contenedor-imagen {
+      margin: 10px;
+    }
+
+    & .contenedor-texto {
+      display: flex;
+      flex-direction: column;
+
+      & h1 {
+        margin: 5px;
+        margin-left: 0px;
+        font-size: 20px;
+      }
+
+      & h2 {
+        margin:3px;
+        margin-left: 0px;
+        font-size: 15px;
+        color:rgb(43, 144, 84)
+      }
+
+      & .contenedor-botones {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+
+        & button {
+          padding: 8px;
+          border-radius: 15px;
+          font-size: 12px;
+          background-color:rgb(73, 202, 124);
+          border-width: 1px;
+          border-color: rgb(44, 113, 72);
+          color: rgb(251, 251, 251);
+          cursor: pointer;
+        }
+
+        & #reservar-cita {
+          background-color:rgb(207, 213, 210);
+          border-color: rgb(44, 113, 72);
+          color: rgb(65, 156, 104);
+        }
+
+      }
+
+    }
+
+    & .contenedor-opiniones {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin: 10px;
+
+      & .texto-opiniones {
+
+        color: rgb(43, 144, 84);
+
+        & a {
+          text-decoration: none;
+          color: rgb(43, 144, 84);
+        }
+
+        & p {
+          margin:3px;
+          margin-left: 0px;
+        }
+        
+      }
+
+      & #nota {
+        margin: 5px;
+        padding:15px;
+        background-color: green;
+        border-radius: 15px;
+        color: rgb(243, 243, 243);
+        transition:0.5s;
+      }
+
+      & #nota:hover{
+        border-style: solid;
+        border-width: 5px;
+        border-color: rgb(7, 69, 7);
+        border-top: 0px;
+        border-left:0px;
+
+        transform: translateX(-3px) translateY(-3px);
+        transition:0.5s;
+      }
+
+    }
+
+
+  }
+
+
+}

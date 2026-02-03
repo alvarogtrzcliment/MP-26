@@ -1,0 +1,28 @@
+body {
+  display: flex;
+  flex-direction: row;
+  height: 100dvh;
+  margin: 0;
+
+  & .menu-lateral {
+    background-color: rgb(51, 129, 121);
+    width: 30%;
+    
+    display: flex;
+    flex-direction: column;
+
+    & a {
+      color: rgb(213, 213, 213);
+      text-decoration: none;
+      padding: 15px;
+      margin: 7px;
+      font-size: 25px;
+    }
+
+    & a:hover {
+      background-color: rgb(27, 69, 65);
+    }
+
+  }
+
+}
