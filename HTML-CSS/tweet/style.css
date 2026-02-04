@@ -1,0 +1,103 @@
+@media (max-width: 600px) {
+  #id-tweet {
+    background-color: aquamarine;
+  }
+}
+
+html {
+  height: 100vh;
+}
+
+body {
+  height: auto;
+  width: auto;
+  min-height: 100vh;
+  overflow-y: scroll;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & .tweet {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 50%;
+    background-color: rgb(216, 216, 216);
+    border-radius: 15px;
+
+    & .encabezado {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      & #foto-perfil {
+        width: 50px;
+        border-radius: 50%;
+        padding: 20px;
+      }
+
+      & .texto-usuario {
+        width: 100%;
+
+        & h2 {
+          font-size: 18px;
+          margin: 0;
+        }
+
+        & h3 {
+          font-size: 12px;
+          font-weight: normal;
+          color: gray;
+          margin: 0;
+        }
+      }
+
+      & #boton-opciones {
+        width: 15px;
+        padding: 20px;
+      }
+    }
+
+    & #contenido-tweet {
+      font-size: 16px;
+      margin-bottom: 2px;
+    }
+
+    & #fecha {
+      color: gray;
+      font-size: 12px;
+    }
+
+    & .texto-interacciones {
+      display: flex;
+
+      border-style: solid;
+      border-left: 0;
+      border-right: 0;
+      border-color: gray;
+
+      flex-direction: row;
+      gap: 30px;
+
+      & p {
+        font-weight: bold;
+      }
+    }
+
+    & .iconos-interaccion {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      padding: 20px;
+
+      & a {
+        & img {
+          width: 20px;
+        }
+      }
+    }
+  }
+}

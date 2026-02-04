@@ -1,0 +1,14 @@
+html{
+  height: 100vh;
+}
+
+body {
+  height: auto;
+  width: auto;
+  min-height: 100vh;
+  overflow-y: scroll;
+  margin: 0;
+  padding: 0;
+
+  background-color: yellow;
+}
