@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Primer Ejercicio</title>
+    <!-- Load Calcite Design System -->
+    <script
+      type="module"
+      src="https://js.arcgis.com/calcite-components/3.3.3/calcite.esm.js"
+    ></script>
+
+    <!-- Load the JavaScript Maps SDK core API -->
+    <script src="https://js.arcgis.com/4.34/"></script>
+
+    <!-- Load the JavaScript Maps SDK Map components or other component packages -->
+    <script
+      type="module"
+      src="https://js.arcgis.com/4.34/map-components/"
+    ></script>
+
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <arcgis-map
+      basemap="topo-vector"
+      zoom="16"
+      center="-3.69,40.45"
+    ></arcgis-map>
+  </body>
+</html>
