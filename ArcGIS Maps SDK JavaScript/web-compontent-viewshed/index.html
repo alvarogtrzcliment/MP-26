@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+
+    <!-- Load Calcite Design System -->
+    <script
+      type="module"
+      src="https://js.arcgis.com/calcite-components/3.3.3/calcite.esm.js"
+    ></script>
+
+    <!-- Load the JavaScript Maps SDK core API -->
+    <script src="https://js.arcgis.com/4.34/"></script>
+
+    <!-- Load the JavaScript Maps SDK Map components or other component packages -->
+    <script
+      type="module"
+      src="https://js.arcgis.com/4.34/map-components/"
+    ></script>
+
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+
+      :root {
+        --calcite-color-brand: #2bfb3f;
+      }
+    </style>
+  </head>
+  <body>
+    <arcgis-scene item-id="6604dffad1c343c99338700729b48378">
+      <arcgis-expand slot="top-right">
+        <arcgis-line-of-sight></arcgis-line-of-sight>
+      </arcgis-expand>
+      <arcgis-expand slot="top-right">
+        <arcgis-sketch
+          creation-mode="continuous"
+          layout="horizontal"
+        ></arcgis-sketch>
+      </arcgis-expand>
+      <arcgis-expand slot="top-right">
+        <head>
+          <style>
+            .custom-content {
+              display: flex;
+              flex-direction: column;
+              max-width: 75vw;
+              width: 25rem;
+              text-align: center;
+              padding: 0 1rem;
+            }
+
+            .custom-content calcite-button {
+              margin: 1rem auto 0;
+            }
+
+            .custom-content calcite-chip {
+              margin: 2rem auto;
+            }
+          </style>
+        </head>
+
+        <body>
+          <calcite-carousel label="Great new features">
+            <calcite-carousel-item label="Pie chart">
+              <div class="custom-content">
+                <calcite-chip
+                  scale="l"
+                  icon="pie-chart"
+                ></calcite-chip>
+                <span>
+                  Pie charts are a great way to visualize data. They're easy to
+                  understand and can be used in a variety of ways.
+                </span>
+              </div>
+            </calcite-carousel-item>
+            <calcite-carousel-item label="Scatter plot">
+              <div class="custom-content">
+                <calcite-chip
+                  scale="l"
+                  icon="graph-scatter-plot"
+                ></calcite-chip>
+                <span>
+                  The scatter plot displays the relationship between multiple
+                  variables. It's a great way to visualize data.
+                </span>
+              </div>
+            </calcite-carousel-item>
+            <calcite-carousel-item label="Histogram">
+              <div class="custom-content">
+                <calcite-chip
+                  scale="l"
+                  icon="box-chart"
+                ></calcite-chip>
+                <span>
+                  Box charts are another great way to visualize data to
+                  illustrate trends and ranges.
+                </span>
+                <calcite-button
+                  icon-start="graph-moving-average"
+                  kind="neutral"
+                  >Browse examples</calcite-button
+                >
+              </div>
+            </calcite-carousel-item>
+            <calcite-carousel-item label="Heat chart">
+              <div class="custom-content">
+                <calcite-chip
+                  scale="l"
+                  icon="heat-chart"
+                ></calcite-chip>
+                <span>
+                  The heat chart bins data into a grid and uses color or
+                  saturation to represent the values.
+                </span>
+              </div>
+            </calcite-carousel-item>
+          </calcite-carousel>
+        </body>
+      </arcgis-expand>
+    </arcgis-scene>
+    <calcite-icon icon="2d-explore" />
+  </body>
+</html>
