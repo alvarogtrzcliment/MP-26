@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Calcite Components</title>
+
+    <!-- Load Calcite Design System -->
+    <script
+      type="module"
+      src="https://js.arcgis.com/calcite-components/3.3.3/calcite.esm.js"
+    ></script>
+
+    <!-- Load the JavaScript Maps SDK core API -->
+    <script src="https://js.arcgis.com/4.34/"></script>
+
+    <!-- Load the JavaScript Maps SDK Map components or other component packages -->
+    <script
+      type="module"
+      src="https://js.arcgis.com/4.34/map-components/"
+    ></script>
+
+    <script
+      type="module"
+      src="main.js"
+      defer
+    ></script>
+
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <calcite-shell>
+      <calcite-shell-panel
+        slot="panel-start"
+        position="start"
+        id="shell-panel-start"
+      >
+        <calcite-action-bar slot="action-bar">
+          <calcite-action-group>
+            <calcite-action
+              text="Add"
+              icon="plus"
+              text-enabled
+            ></calcite-action>
+            <calcite-action
+              active
+              text="Layers"
+              indicator
+              icon="layers"
+              text-enabled
+            ></calcite-action>
+          </calcite-action-group>
+          <calcite-action-group>
+            <calcite-action
+              text="Undo"
+              icon="undo"
+              text-enabled
+            ></calcite-action>
+            <calcite-action
+              text="Redo"
+              indicator
+              icon="redo"
+              text-enabled
+            ></calcite-action>
+            <calcite-action
+              text="Save"
+              disabled
+              icon="save"
+              text-enabled
+            ></calcite-action>
+          </calcite-action-group>
+          <calcite-action-group slot="bottom-actions">
+            <calcite-action
+              text="Tips"
+              icon="question"
+              text-enabled
+            ></calcite-action>
+            <calcite-action
+              text="Settings"
+              indicator
+              icon="gear"
+              text-enabled
+            ></calcite-action>
+          </calcite-action-group>
+        </calcite-action-bar>
+        <calcite-panel
+          heading="Layers"
+          id="panel-start"
+          collapsible
+        >
+          <calcite-block
+            collapsible
+            heading="Symbology"
+            description="Select type, color, and transparency"
+            icon-start="map-pin"
+          >
+            <calcite-notice open>
+              <div slot="message">The viewers are going to love this</div>
+            </calcite-notice>
+          </calcite-block>
+        </calcite-panel>
+      </calcite-shell-panel>
+      <calcite-panel heading="Content">
+        <arcgis-map
+          basemap="topo-vector"
+          zoom="10"
+          center="-3.7,40.4"
+        ></arcgis-map>
+      </calcite-panel>
+    </calcite-shell>
+  </body>
+</html>
