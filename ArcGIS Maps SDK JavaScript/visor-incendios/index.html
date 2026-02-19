@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Visor Incendios</title>
+    <!-- Load Calcite Design System -->
+    <script
+      type="module"
+      src="https://js.arcgis.com/calcite-components/3.3.3/calcite.esm.js"
+    ></script>
+
+    <!-- Load the JavaScript Maps SDK core API -->
+    <script src="https://js.arcgis.com/4.34/"></script>
+
+    <!-- Load the JavaScript Maps SDK Map components or other component packages -->
+    <script
+      type="module"
+      src="https://js.arcgis.com/4.34/map-components/"
+    ></script>
+
+    <link
+      rel="stylesheet"
+      href="style.css"
+    />
+
+    <script
+      type="module"
+      src="main.js"
+      defer
+    ></script>
+  </head>
+  <body class="calcite-mode-dark">
+    <calcite-shell>
+      <calcite-navigation slot="header">
+        <calcite-navigation-logo
+          slot="logo"
+          heading="Visor de Incendios en tiempo real"
+          description="Esri España"
+        >
+        </calcite-navigation-logo>
+        <calcite-menu
+          slot="content-end"
+          label="Snow Plow Map Menu"
+        >
+          <calcite-menu-item
+            active
+            text="Últimas 48h"
+            icon-start="license"
+          ></calcite-menu-item>
+          <calcite-menu-item
+            text="Últimos 7 días"
+            icon-start="road-sign"
+          ></calcite-menu-item>
+        </calcite-menu>
+        <calcite-navigation-user
+          slot="user"
+          full-name="Álvaro Gutiérrez"
+          username="alvaro_gutierrez"
+        ></calcite-navigation-user>
+      </calcite-navigation>
+      <calcite-shell-panel slot="panel-start">
+        <calcite-action-bar slot="action-bar">
+          <calcite-action
+            active
+            icon="information"
+            text="Información de las entidades"
+            text-enabled
+          ></calcite-action>
+        </calcite-action-bar>
+      </calcite-shell-panel>
+      <calcite-panel>
+        <arcgis-map
+          basemap="dark-gray"
+          center="-3.8, 40.45"
+          zoom="5"
+        ></arcgis-map>
+      </calcite-panel>
+    </calcite-shell>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+:root {
+  --calcite-color-brand: #fb3d5e;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
