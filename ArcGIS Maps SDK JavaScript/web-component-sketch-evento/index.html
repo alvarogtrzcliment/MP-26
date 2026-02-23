@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <!-- Load Calcite Design System -->
+    <script
+      type="module"
+      src="https://js.arcgis.com/calcite-components/3.3.3/calcite.esm.js"
+    ></script>
+
+    <!-- Load the JavaScript Maps SDK core API -->
+    <script src="https://js.arcgis.com/4.34/"></script>
+
+    <!-- Load the JavaScript Maps SDK Map components or other component packages -->
+    <script
+      type="module"
+      src="https://js.arcgis.com/4.34/map-components/"
+    ></script>
+
+    <script
+      type="module"
+      src="main.js"
+      defer
+    ></script>
+
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <arcgis-map basemap="topo-vector">
+      <arcgis-sketch
+        slot="bottom-right"
+        default-graphics-layer-disabled
+        hide-create-tools-circle
+        hide-create-tools-multipoint
+        hide-create-tools-polygon
+        hide-create-tools-polyline
+        hide-create-tools-rectangle
+      ></arcgis-sketch>
+    </arcgis-map>
+  </body>
+</html>
