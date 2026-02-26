@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=7, initial-scale=1.0"
+    />
+    <title>Analisis Ráster</title>
+
+    <!-- Load the ArcGIS Maps SDK for JavaScript from CDN -->
+    <script
+      type="module"
+      src="https://js.arcgis.com/5.0/"
+    ></script>
+
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+    </style>
+
+    <script
+      type="module"
+      src="main.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <arcgis-map
+      basemap="topo-vector"
+      center="-16.15,28.28"
+      zoom="9"
+    ></arcgis-map>
+  </body>
+</html>

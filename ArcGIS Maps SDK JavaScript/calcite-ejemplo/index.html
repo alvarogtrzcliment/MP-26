@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Calcite Ejemplo</title>
+    <script
+      type="module"
+      src="https://js.arcgis.com/5.0/"
+    ></script>
+
+    <script
+      type="module"
+      src="main.js"
+      defer
+    ></script>
+
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <calcite-shell class="calcite-mode-dark">
+      <calcite-shell-panel
+        slot="panel-start"
+        resizable
+      >
+        <calcite-action-bar slot="action-bar">
+          <calcite-action-group>
+            <calcite-action
+              text="Add"
+              id="add-layer"
+              icon="plus"
+              text-enabled
+            ></calcite-action>
+            <calcite-action
+              active
+              text="Layers"
+              indicator
+              icon="layers"
+              text-enabled
+            ></calcite-action>
+          </calcite-action-group>
+          <calcite-action-group>
+            <calcite-action
+              text="Undo"
+              icon="undo"
+              text-enabled
+            ></calcite-action>
+            <calcite-action
+              text="Redo"
+              indicator
+              icon="redo"
+              text-enabled
+            ></calcite-action>
+            <calcite-action
+              text="Save"
+              disabled
+              icon="save"
+              text-enabled
+            ></calcite-action>
+          </calcite-action-group>
+          <calcite-action-group slot="bottom-actions">
+            <calcite-action
+              text="Tips"
+              icon="question"
+              text-enabled
+            ></calcite-action>
+            <calcite-action
+              text="Settings"
+              indicator
+              icon="gear"
+              text-enabled
+            ></calcite-action>
+          </calcite-action-group> </calcite-action-bar
+      ></calcite-shell-panel>
+      <calcite-panel heading="Mapa">
+        <arcgis-map basemap="gray"></arcgis-map>
+      </calcite-panel>
+    </calcite-shell>
+  </body>
+</html>
