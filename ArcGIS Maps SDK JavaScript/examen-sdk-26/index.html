@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Examen Máster Presencial 2026</title>
+
+    <script
+      type="module"
+      src="https://js.arcgis.com/5.0/"
+    ></script>
+
+    <script
+      type="module"
+      src="main.js"
+      defer
+    ></script>
+
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body class="calcite-mode-dark">
+    <arcgis-map
+      basemap="dark-gray"
+      zoom="11"
+      center="-3.69,40.45"
+      ><arcgis-layer-list slot="bottom-left"></arcgis-layer-list>
+      <arcgis-legend slot="bottom-right"></arcgis-legend>
+    </arcgis-map>
+  </body>
+</html>
