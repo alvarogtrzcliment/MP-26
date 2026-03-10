@@ -1,30 +1,58 @@
 import { React, type AllWidgetProps } from "jimu-core";
 import type { IMConfig } from "../config";
-import { type JimuMapView, JimuMapViewComponent } from "jimu-arcgis";
-import { useState } from "react";
+import { JimuMapView, JimuMapViewComponent } from "jimu-arcgis";
+import { useEffect, useState } from "react";
 import Point from "@arcgis/core/geometry/Point";
 import "./widget.css";
 
 const Widget = (props: AllWidgetProps<IMConfig>) => {
 	console.log("Propiedades del Widget", props);
 
-	function activeViewChangeHandler(eventoMapa: JimuMapView) {
-		console.log("Evento Mapa", eventoMapa);
+	const [coordenadas, setCoordenadas] = useState<Point>();
+	const [vistaMapa, setVistaMapa] = useState<JimuMapView>();
 
-		if (eventoMapa) {
-			eventoMapa.view.on("pointer-move", (evento) => {
-				console.log("pointer-move", evento);
-				const punto: Point = eventoMapa.view.toMap({
-					x: evento.x,
-					y: evento.y,
+	useEffect(() => {
+		if (vistaMapa) {
+			const pointer = vistaMapa.view.on("pointer-move", (eventoPointer) => {
+				console.log("pointer", eventoPointer);
+				const punto: Point = vistaMapa.view.toMap({
+					x: eventoPointer.x,
+					y: eventoPointer.y,
 				});
-				console.log("Punto", punto);
+				console.log("punto", punto);
+				setCoordenadas(() => punto);
 			});
+			return () => {
+				pointer.remove();
+			};
+		}
+	}, [vistaMapa]);
+
+	function activeViewChangeHandler(eventoVistaMapa: JimuMapView) {
+		console.log("JimuMapView", eventoVistaMapa);
+		if (eventoVistaMapa) {
+			setVistaMapa(() => eventoVistaMapa);
 		}
 	}
 
 	return (
 		<div className="plantilla-mapa">
+			{coordenadas && (
+				<>
+					<p>
+						<strong>Coordenadas del mapa</strong>
+					</p>
+					<p>
+						<strong>Latitud: </strong>
+						{coordenadas.latitude}
+					</p>
+					<p>
+						<strong>Longitud: </strong>
+						{coordenadas.longitude}
+					</p>
+				</>
+			)}
+
 			{props.useMapWidgetIds && props.useMapWidgetIds.length === 1 && (
 				<JimuMapViewComponent
 					useMapWidgetId={props.useMapWidgetIds[0]}
