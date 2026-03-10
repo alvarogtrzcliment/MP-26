@@ -1,0 +1,21 @@
+.tarjeta {
+	background-color: azure;
+	border: 1px solid black;
+	border-radius: 10px;
+	padding: 1em;
+
+	& .principal {
+		display: flex;
+		flex-direction: row;
+		justify-content: start;
+		align-items: center;
+		border-bottom: 1px solid black;
+		padding: 1em;
+
+		& img {
+			border-radius: 50%;
+			width: 100px;
+			padding: 1em;
+		}
+	}
+}
