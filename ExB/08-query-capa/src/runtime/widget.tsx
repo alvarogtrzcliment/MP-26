@@ -1,29 +1,56 @@
-import { React, type AllWidgetProps } from "jimu-core";
-import type { IMConfig } from "../config";
-import { JimuMapView, JimuMapViewComponent } from "jimu-arcgis";
-import { useState } from "react";
-import "./widget.css";
+import { React, type AllWidgetProps } from 'jimu-core'
+import { type IMConfig } from '../config'
+import { type JimuMapView, JimuMapViewComponent } from 'jimu-arcgis'
+import { useEffect, useState } from 'react'
+import Query from 'esri/rest/support/Query'
+import type FeatureLayer from 'esri/layers/FeatureLayer'
+import { type Point } from 'esri/geometry'
 
 const Widget = (props: AllWidgetProps<IMConfig>) => {
-	console.log("Propiedades Widget", props);
+  console.log('Propiedades del Widget', props)
 
-	const [vistaActiva, setVistaActiva] = useState<JimuMapView>();
+  const [vistaActiva, setVistaActiva] = useState<JimuMapView>()
 
-	function activeViewChangeHandler(eventoVistaMap: JimuMapView) {
-		console.log("JimuMapView", eventoVistaMap);
-		setVistaActiva(() => eventoVistaMap);
-	}
+  useEffect(() => {
+    if (vistaActiva) {
+      const eventoClick = vistaActiva.view.on('click', (eventoClickResultado) => {
+        const geometriaClick: Point = eventoClickResultado.mapPoint
+        const parametrosQuery = new Query({
+          geometry: geometriaClick,
+          outFields: ['*'],
+          spatialRelationship: 'intersects'
+        })
 
-	return (
-		<div className="plantilla-mapa">
-			{props.useMapWidgetIds && props.useMapWidgetIds.length === 1 && (
-				<JimuMapViewComponent
-					useMapWidgetId={props.useMapWidgetIds[0]}
-					onActiveViewChange={activeViewChangeHandler}
-				/>
-			)}
-		</div>
-	);
-};
+        const capaEspaciosNaturales: FeatureLayer = vistaActiva.view.map.allLayers.items[2]
 
-export default Widget;
+        capaEspaciosNaturales.queryFeatures(parametrosQuery).then((resultadosQuery) => {
+          console.log(resultadosQuery)
+        })
+      })
+
+      return () => {
+        eventoClick.remove()
+      }
+    }
+  }, [vistaActiva])
+
+  function activeViewHandler (eventoMapView: JimuMapView) {
+    console.log('JimuMapView: ', eventoMapView)
+
+    if (eventoMapView) {
+      setVistaActiva(() => eventoMapView)
+    }
+  }
+
+  return (
+    <div className='query-punto'>
+    {
+      props.useMapWidgetIds && props.useMapWidgetIds.length === 1 && (
+        <JimuMapViewComponent onActiveViewChange={activeViewHandler} useMapWidgetId={props.useMapWidgetIds[0]}></JimuMapViewComponent>
+      )
+    }
+    </div>
+  )
+}
+
+export default Widget
